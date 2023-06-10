@@ -1,5 +1,6 @@
 package enums;
 
 public enum Resource {
-    ENERGY, MANA, MANALESS;
+    BLOODTHIRST, COURAGE, ENERGY, FEROCITY, FLOW, FURY, GRIT, HEALTH_COSTS,
+    HEAT, MANA, MANALESS, RAGE, SHIELD;
 }
