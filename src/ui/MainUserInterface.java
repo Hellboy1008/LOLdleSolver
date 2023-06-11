@@ -1,10 +1,21 @@
 package ui;
 
-import lombok.extern.slf4j.Slf4j;
+import java.util.Scanner;
 
-@Slf4j
+import calculation.Calculation;
+
 public class MainUserInterface {
+    private static final String WELCOME_STRING = "Welcome to LOLdle Solver! " +
+            "Try this as your first guess: %s";
+
     public static void main(String[] args) {
-        log.info("Hello World");
+        Calculation calculation = new Calculation();
+        Scanner scanner = new Scanner(System.in);
+
+        // welcome user
+        System.out.println(String.format(WELCOME_STRING,
+                calculation.calculateFirstGuess().getChampionName()));
+
+        scanner.close();
     }
 }

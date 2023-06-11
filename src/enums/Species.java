@@ -1,5 +1,9 @@
 package enums;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public enum Species {
     ASPECT, BRACKERN, CAT, CELESTIAL, CHEMICALLY_ALTERED, CYBORG, DARKIN, DEMON,
     DRAGON, GOD, GOD_WARRIOR, GOLEM, HUMAN, ICEBORN, MAGICALLY_ALTERED,

@@ -5,13 +5,14 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import constants.ChampionConstants;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-public enum Champions {
+public enum Champion {
 
 	AATROX("Aatrox", Gender.MALE,
 			newSingleton(Position.TOP),
@@ -1164,6 +1165,35 @@ public enum Champions {
 	private final Set<RangeType> rangeType;
 	private final Set<Region> regions;
 	private final int releaseYear;
+
+	public Object getCategory(String category) {
+		Object returnObj;
+
+		switch (category) {
+			case ChampionConstants.GENDER:
+				returnObj = this.getGender();
+				break;
+			case ChampionConstants.POSITION:
+				returnObj = this.getPositions();
+				break;
+			case ChampionConstants.SPECIES:
+				returnObj = this.getSpecies();
+				break;
+			case ChampionConstants.RESOURCE:
+				returnObj = this.getResource();
+				break;
+			case ChampionConstants.RANGE_TYPE:
+				returnObj = this.getRangeType();
+				break;
+			case ChampionConstants.REGION:
+				returnObj = this.getRegions();
+				break;
+			default:
+				returnObj = null;
+		}
+
+		return returnObj;
+	}
 
 	/**
 	 * Create a Set of champion positions.
