@@ -1,6 +1,8 @@
 package enums;
 
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -1193,6 +1195,22 @@ public enum Champion {
 		}
 
 		return returnObj;
+	}
+
+	/**
+	 * Return corresponding Champion enum given champion name if exists.
+	 * 
+	 * @param championName champion name
+	 * @return corresponding Champion or null if not found
+	 */
+	public static Champion getChampionFromName(String championName) {
+		List<Champion> championList = Arrays.asList(Champion.values());
+		for (Champion champion : championList) {
+			if (championName.equalsIgnoreCase(champion.getChampionName())) {
+				return champion;
+			}
+		}
+		return null;
 	}
 
 	/**
