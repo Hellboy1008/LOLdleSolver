@@ -13,9 +13,9 @@ public class Calculation {
 
     private static final String ANSWER = " (which is also the answer)";
     private static final String DELIMITER = ",";
-    private static final String DOWN = "d";
     private static final String GREEN = "g";
     private static final String ORANGE = "o";
+    private static final String UP = "u";
     private static final Set<?> EMPTY_SET = Collections.emptySet();
 
     /**
@@ -142,7 +142,7 @@ public class Calculation {
         if (GREEN.equals(color) || guessYear == answerYear) {
             return championList.stream().filter(
                     c -> guessYear == c.getReleaseYear()).toList();
-        } else if (DOWN.equals(color) || guessYear < answerYear) {
+        } else if (UP.equals(color) || guessYear < answerYear) {
             return championList.stream().filter(
                     c -> guessYear < c.getReleaseYear()).toList();
         }
