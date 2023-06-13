@@ -35,9 +35,9 @@ public class MainUserInterface {
         System.out.println(EXIT_MSG);
 
         // loop till exited
+        String guess = firstGuess;
         boolean exit = false;
         while (!exit) {
-            String guess = firstGuess;
             System.out.println(COLORS);
             String userInput = scanner.nextLine();
             userInput = userInput.toLowerCase();
@@ -54,8 +54,8 @@ public class MainUserInterface {
             }
 
             // find next guess
-            System.out.println(String.format(NEXT_GUESS,
-                    calculation.calculateNextBestGuess(guess, userInput)));
+            guess = calculation.calculateNextBestGuess(guess, userInput);
+            System.out.println(String.format(NEXT_GUESS, guess));
         }
 
         scanner.close();
