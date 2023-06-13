@@ -78,7 +78,6 @@ public class MainUserInterface {
                     break;
                 }
             }
-            System.out.println(input.length);
             if (VALID_SIZE != input.length) {
                 valid = false;
             }

@@ -11,6 +11,7 @@ import enums.Champion;
 
 public class Calculation {
 
+    private static final String ANSWER = " (which is also the answer)";
     private static final String DELIMITER = ",";
     private static final String DOWN = "d";
     private static final String GREEN = "g";
@@ -178,7 +179,7 @@ public class Calculation {
                 championList, userInputArr[6]);
 
         if (championList.size() == 1) {
-            return championList.get(0).getChampionName();
+            return championList.get(0).getChampionName() + ANSWER;
         }
         
         return calculateFirstGuess(championList);
