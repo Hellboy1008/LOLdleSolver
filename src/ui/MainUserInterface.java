@@ -1,5 +1,6 @@
 package ui;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -9,20 +10,20 @@ import enums.Champion;
 
 public class MainUserInterface {
     private static final int VALID_SIZE = 7;
-    private static final String COLORS = "Type the colors you see from your " +
-            "guess (g for green, o for orange, r for red). For release year, " +
-            "if the box is red, type u for up or d for down.";
+    private static final String COLORS = "Type the colors you see from your "
+            + "guess (g for green, o for orange, r for red). For release year, "
+            + "if the box is red, type u for up or d for down.";
     private static final String COMMA = ",";
     private static final String EXIT = "exit";
-    private static final String EXIT_MSG = "Exit program whenever by typing " +
-            "\"exit\"";
+    private static final String EXIT_MSG = "Exit program whenever by typing "
+            + "\"exit\"";
     private static final String NEXT_GUESS = "Try this as your next guess: %s";
-    private static final String NOT_VALID_INPUT = "That was not a valid " +
-            "input, please try again.";
-    private static final String WELCOME_STRING = "Welcome to LOLdle Solver! " +
-            "\nTry this as your first guess: %s";
-    private static final List<String> VALID_INPUT = Arrays.asList(
-            "g", "o", "r", "u", "d");
+    private static final String NOT_VALID_INPUT = "That was not a valid "
+            + "input, please try again.";
+    private static final String WELCOME_STRING = "Welcome to LOLdle Solver! "
+            + "\nTry this as your first guess: %s";
+    private static final List<String> VALID_INPUT = Arrays.asList("g", "o", "r",
+            "u", "d");
 
     public static void main(String[] args) {
         Calculation calculation = new Calculation();
@@ -36,6 +37,8 @@ public class MainUserInterface {
 
         // loop till exited
         String guess = firstGuess;
+        List<String> previousGuesses = new ArrayList<>();
+        previousGuesses.add(firstGuess);
         boolean exit = false;
         while (!exit) {
             System.out.println(COLORS);
@@ -54,8 +57,10 @@ public class MainUserInterface {
             }
 
             // find next guess
-            guess = calculation.calculateNextBestGuess(guess, userInput);
+            guess = calculation.calculateNextBestGuess(guess, userInput,
+                    previousGuesses);
             System.out.println(String.format(NEXT_GUESS, guess));
+            previousGuesses.add(guess);
         }
 
         scanner.close();
