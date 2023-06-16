@@ -194,8 +194,6 @@ public class Calculation {
 		championList = filterByYear(guessChampion.getReleaseYear(), -1,
 				championList, userInputArr[6]);
 
-		System.out.println(championList);
-
 		if (championList.size() == 1) {
 			return championList.get(0).getChampionName() + ANSWER;
 		}
